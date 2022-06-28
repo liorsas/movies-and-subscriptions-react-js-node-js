@@ -24,13 +24,13 @@ router.route("/log").post(async function (req, res) {
   }
 
   if (validUser) {
-    let sess = req.session;
+    // let sess = req.session;
 
-    sess.name = validUser.name;
-    sess.role = validUser.role;
-    sess.sessTime = validUser.sessionTime;
-    sess.perm = validUser.permitions;
-    sess.cookie.expires = 60000 * parseInt(validUser.sessionTime);
+    // sess.name = validUser.name;
+    // sess.role = validUser.role;
+    // sess.sessTime = validUser.sessionTime;
+    // sess.perm = validUser.permitions;
+    // sess.cookie.expires = 60000 * parseInt(validUser.sessionTime);
 
     const userId = validUser.name;
 

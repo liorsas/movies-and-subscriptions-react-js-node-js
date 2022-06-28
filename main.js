@@ -7,7 +7,7 @@ const subscriptionsRouter = require("./routers/subscriptionsRouter");
 const membersRouter = require("./routers/membersRouter");
 const moviesRouter = require("./routers/moviesRouter");
 const usersRouter = require("./routers/userRouter");
-const session = require("express-session");
+//const session = require("express-session");
 var cors = require("cors");
 process.env.NODE_ENV = "production";
 
@@ -18,14 +18,14 @@ let app = express();
 require("./configs/database");
 app.use(cors());
 
-app.use(
-  session({
-    secret: "my-secret",
-    rolling: true,
-    saveUninitialized: true,
-    cookie: {},
-  })
-);
+// app.use(
+//   session({
+//     secret: "my-secret",
+//     rolling: true,
+//     saveUninitialized: true,
+//     cookie: {},
+//   })
+// );
 
 memAndMovBL.saveMemberTODB();
 memAndMovBL.saveMoviesTODB();
