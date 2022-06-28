@@ -15,7 +15,7 @@ function Users() {
       try {
         let resp = await axios({
           method: "get",
-          url: "http://localhost:3001/api/users/",
+          url: "https://moviesandsub.herokuapp.com/api/users/",
 
           headers: {
             "Content-Type": "application/json",
