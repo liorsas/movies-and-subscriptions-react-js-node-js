@@ -11,6 +11,8 @@ const usersRouter = require("./routers/userRouter");
 var cors = require("cors");
 process.env.NODE_ENV = "production";
 
+const PORT = process.env.PORT || 3001;
+
 dotenv.config();
 
 let app = express();
@@ -39,6 +41,7 @@ app.use("/api/users", usersRouter);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join((__dirname, "client/build"))));
+
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
@@ -47,9 +50,5 @@ if (process.env.NODE_ENV === "production") {
     res.send("api running");
   });
 }
-const PORT = process.env.PORT || 3001;
 
-app.listen(3001, () => {
-  console.log(`Node listens at port ${PORT}`);
-  console.log(process.env.DEV_MODE);
-});
+app.listen(PORT, console.log(`server is starting at ${PORT}`));
